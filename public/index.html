@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Finance API-PJauvin</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <header class="jumbotron" style="background-color:lightgreen;color:black;">
+
+      <div class="container">
+        <div class="row">
+          <h1>Unofficial Google Finance API</h1>
+
+          <h2> <a href="http://philjauvin.xyz">Phil Jauvin</a>
+          <a href="https://github.com/phil-jauvin/finance-api"><i class="fa fa-github"></i></a>
+          </h2>
+
+        </div>
+      </div>
+
+    </header>
+
+    <div class="container">
+
+      <div class="row">
+        <h4><b>Please see the note at the bottom concerning usage</b></h4>
+        <h4><b>Also note some exchange data is delayed by 15 minutes</b></h4>
+        <h2>About</h2>
+        <p>
+          This API is built with Node using the Express framework.
+          It scrapes Google Finance for data and returns it to the user in the form of JSON.
+        </p>
+      </div>
+
+      <div class="row">
+        <h2>API Calls</h2>
+
+        <div class="container">
+          <h3>Last quote for a given symbol: /api/quote/*</h3>
+          <div class="container">
+            <h4>Example:</h4>
+            <h4>/api/quote/GOOG</h4>
+            <h4>/api/quote/TSE:BB</h4>
+            <h4>/api/quote/amazon</h4>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <h2>Usage</h2>
+        <p>
+          Requests to the demo server (i.e this one) are limited to one every 60 seconds. <br>
+          Also, please don't use this for your trading - this API is basically a toy and shouldn't be used for investing purposes.
+        </p>
+      </div>
+
+    </div>
+
+  </body>
+
+
+</html>
