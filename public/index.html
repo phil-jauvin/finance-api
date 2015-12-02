@@ -40,6 +40,7 @@
       <div class="row">
         <h4><b>Please see the note at the bottom concerning usage</b></h4>
         <h4><b>Also note some exchange data is delayed by 15 minutes</b></h4>
+
         <h2>About</h2>
         <p>
           This API is built with Node using the Express framework.
@@ -49,14 +50,26 @@
 
       <div class="row">
         <h2>API Calls</h2>
+        <div class="container">
+          <h3>Last quote for a given symbol: <code>/api/quote/*</code></h3>
+          <div class="container">
+            <h4>Examples:</h4>
+            <ul>
+              <li><h4><code>/api/quote/GOOG</code></h4></li>
+              <li><h4><code>/api/quote/TSE:BB</code></h4></li>
+            </ul>
+          </div>
+        </div>
 
         <div class="container">
-          <h3>Last quote for a given symbol: /api/quote/*</h3>
+          <h3>Company name to symbol: <code>/api/getsymbol/*</code></h3>
           <div class="container">
-            <h4>Example:</h4>
-            <h4>/api/quote/GOOG</h4>
-            <h4>/api/quote/TSE:BB</h4>
-            <h4>/api/quote/amazon</h4>
+            <h4>Returns the symbol for a given company name, or null if symbol can't be found</h4>
+            <h4>Examples:</h4>
+            <ul>
+              <li><h4><code>/api/getsymbol/google</code></h4></li>
+              <li><h4><code>/api/getsymbol/starbucks</code></h4></li>
+            </ul>
           </div>
         </div>
 
