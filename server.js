@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname,"/public")));
 // Assign functions to each routes
 app.get("/api/quote/:symbol",scrape.quote);
 app.get("/api/getsymbol/:company",scrape.getSymbol);
+app.get("/api/historical/:symbol/:interval/:lookback",scrape.historical);
 
 // If connection is to anything other than an api route, redirect to the home page
 app.get("*",function(req,res){

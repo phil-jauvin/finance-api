@@ -58,21 +58,27 @@
     <div class="container">
 
       <div class="row">
-        <h4><b>Please see the note at the bottom concerning usage</b></h4>
-        <h4><b>Also note some exchange data is delayed by 15 minutes</b></h4>
+        
+        <div class="container" style="background-color:rgba(225, 235, 118,0.8)">
+          <h1><i class="fa fa-exclamation-triangle"></i></h1>
+          <h4><b>Please see the note at the bottom concerning usage</b></h4>
+          <h4><b>Also note some exchange data is delayed by 15 minutes</b></h4>
+          <h4><b>Development is ongoing</b></h4>
+        </div>
 
         <h2>About</h2>
         <p>
           This API is built with Node using the Express framework.
-          It scrapes Google Finance for data and returns it to the user in the form of JSON.
+          It scrapes Google Finance for data and returns it to the user in the form of JSON/Text.
         </p>
       </div>
 
       <div class="row">
         <h2>API Calls</h2>
         <div class="container">
-          <h3>Last quote for a given symbol: <code>/api/quote/*</code></h3>
+          <h3>Last quote: <code>/api/quote/:symbol</code></h3>
           <div class="container">
+            <h4>Returns the last quote for a given symbol.</h4>
             <h4>Examples:</h4>
             <ul>
               <li><h4><code>/api/quote/GOOG</code></h4></li>
@@ -82,13 +88,25 @@
         </div>
 
         <div class="container">
-          <h3>Company name to symbol: <code>/api/getsymbol/*</code></h3>
+          <h3>Company name to symbol: <code>/api/getsymbol/:company</code></h3>
           <div class="container">
-            <h4>Returns the symbol for a given company name</h4>
+            <h4>Returns the symbol for a given company name or null if no symbol is found.</h4>
             <h4>Examples:</h4>
             <ul>
               <li><h4><code>/api/getsymbol/google</code></h4></li>
               <li><h4><code>/api/getsymbol/starbucks</code></h4></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="container">
+          <h3>Historical price data: <code>/api/historical/:symbol/:interval/:lookback</code></h3>
+          <div class="container">
+            <h4>Returns historical data for a given symbol.</h4>
+            <h4>Examples:</h4>
+            <ul>
+              <li><h4><code>/api/historical/RY/1/1</code> where interval is 1 minute and lookback 1 day</h4></li>
+              <li><h4><code>/api/historical/TD/1/7</code> where interval is 1 minute and lookback 1 week</h4></li>
             </ul>
           </div>
         </div>
