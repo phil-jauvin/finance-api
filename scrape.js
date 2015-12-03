@@ -22,6 +22,11 @@ var getSymbol = function(req,res){
       var symbol = [];
       var symbol_string = "";
 
+      // if there's no results, just send back null.
+      if(html.search("produced no matches")!=-1){
+        res.send("null");
+      }
+
       // in this case we look at the symbol of the first result
       if (index != -1){
 
