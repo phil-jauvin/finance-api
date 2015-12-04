@@ -1,8 +1,13 @@
 express = require("express");
 path = require("path");
 scrape = require("./scrape");
+rateLimit = require('express-rate-limit');
 
 var app = express();
+
+// Limit API call rate
+var limiter = rateLimit({delayMs:60000});
+app.use('/api/', limiter);
 
 // Use html and css in public
 app.use(express.static(path.join(__dirname,"/public")));
