@@ -19,35 +19,30 @@ var getSymbol = function(req,res){
     if (!error) {
       // if "id=rc-1" is in the page, it means that there are multiple results
       // that string refers to the id of the first result.
-      var index = html.search("id=rc-1");
-      var symbol = [];
+      var index;
       var symbol_string = "";
 
       // if there's no results, just send back the string null.
-      if(html.search("produced no matches")!=-1){
+
+      index = html.indexOf("produced no matches");
+
+      if(index !=-1){
         res.send("null");
       }
 
       // in this case we look at the symbol of the first result
+
+      index = html.indexOf("id=rc-1");
+
       if (index != -1){
 
-        while(true){
-          index++;
-          if (html[index]=="&"){
-            break;
-          }
-        }
+        var end = index+100;
 
-        index--;
+        symbol_string = html.slice(index,end);
+        index = symbol_string.indexOf("q=")+2;
+        end = symbol_string.indexOf("&");
+        symbol_string = symbol_string.slice(index,end);
 
-        while(true){
-          if (html[index]=="="){
-            break;
-          }
-          symbol.push(html[index]);
-          index--;
-        }
-        symbol.reverse();
       }
 
       // else, we stumble on the only result for our search
@@ -55,27 +50,12 @@ var getSymbol = function(req,res){
 
         index = html.search("including real-time stock quotes");
 
-        while(true){
-          index--;
-          if (html[index] == "("){
-            break;
-          }
-        }
+        var start = index-100;
 
-        index++;
+        symbol_string = html.slice(start,index-2);
+        start = symbol_string.indexOf("(");
+        symbol_string = symbol_string.slice(start+1);
 
-        while(true){
-          if (html[index]==")"){
-            break;
-          }
-          symbol.push(html[index]);
-          index++;
-        }
-      }
-
-      // make a string from the array symbol to send as a response
-      for(var i=0;i<symbol.length;i++){
-        symbol_string = symbol_string + symbol[i];
       }
 
       res.send(symbol_string);
