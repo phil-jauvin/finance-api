@@ -18,11 +18,12 @@ var getSymbol = function(req,res){
   request(url, function (error, response, html) {
     if (!error) {
       // if "id=rc-1" is in the page, it means that there are multiple results
+      // that string refers to the id of the first result.
       var index = html.search("id=rc-1");
       var symbol = [];
       var symbol_string = "";
 
-      // if there's no results, just send back null.
+      // if there's no results, just send back the string null.
       if(html.search("produced no matches")!=-1){
         res.send("null");
       }
@@ -72,7 +73,7 @@ var getSymbol = function(req,res){
         }
       }
 
-      // make a string to send as a response
+      // make a string from the array symbol to send as a response
       for(var i=0;i<symbol.length;i++){
         symbol_string = symbol_string + symbol[i];
       }
