@@ -1,6 +1,8 @@
 # finance-api
 Unofficial REST API for google finance
 
+This API's homepage: http://159.203.29.155:3000
+
 About
 
 This API is built with Node using the Express framework. It scrapes Google Finance for data and returns it to the user in the form of JSON/Text.
