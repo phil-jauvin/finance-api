@@ -1,7 +1,7 @@
 # finance-api
 Unofficial REST API for google finance
 
-This API's homepage: http://159.203.29.155:3000
+This API's homepage (hosted on DigitalOcean): http://159.203.29.155:3000
 
 About
 
