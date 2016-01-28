@@ -66,7 +66,7 @@ var getSymbol = function(req,res){
 
 var historical = function(req,res){
 
-  url = "http://www.google.com/finance/getprices?i="+String(parseInt(req.params.interval)*60)+"&p="+req.params.lookback+"d&f=c&df=cpct&q="+req.params.symbol.toUpperCase();
+  url = "http://www.google.com/finance/getprices?i="+String(parseInt(req.body.interval)*60)+"&p="+req.body.lookback+"d&f=c&df=cpct&q="+req.params.symbol.toUpperCase();
 
   request(url, function (error, response, html) {
     if (!error) {
